@@ -1,3 +1,31 @@
-<h1>Nytt försök...</h1>
+<h1>Start Page</h1>
+
+User name:
+<input type="text" [(ngModel)]='userName'>
+
+<button (click)='search()'>Search</button>
+<div *ngIf='response'>
+  <br>
+  Login name:
+  {{ response?.login }}
+  <br>
+  Number of repositories:
+  {{ response?.public_repos}}
+</div>
+<br>
+
+Film:
+<input type="text" [(ngModel)]='userFilm'>
+<button (click)='movieSearch()'>Search</button>
+<div *ngIf='movieResponse'>
+  Titles:
+  <div *ngFor='let res of movieResponse.results'>
+    {{ res.title }}
+  </div>
+</div>
+
+
+
+
 
 <router-outlet></router-outlet>
