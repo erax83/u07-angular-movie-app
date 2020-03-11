@@ -1,28 +1,42 @@
-<h1>Start Page</h1>
+<h1>Film Page</h1>
 
-User name:
-<input type="text" [(ngModel)]='userName'>
-
-<button (click)='search()'>Search</button>
-<div *ngIf='response'>
-  <br>
-  Login name:
-  {{ response?.login }}
-  <br>
-  Number of repositories:
-  {{ response?.public_repos}}
+Popular movies right now:
+<div *ngIf='popularResponse'>
+  <div *ngFor='let response of popularResponse.results'>
+    <p (click)='movieInfo(response.id)'> {{ response.title }} </p>
+    
+  </div>
 </div>
+
 <br>
 
 Film:
 <input type="text" [(ngModel)]='userFilm'>
 <button (click)='movieSearch()'>Search</button>
+<div *ngIf='infoResponse'>
+  Title:
+  {{ infoResponse.title }}
+  <br>
+  Release Date:
+  {{ infoResponse.release_date }}
+  <br>
+  Rating:
+  {{ infoResponse.vote_average }}
+  <br>
+  Original Language:
+  {{ infoResponse.original_language }}
+  <br>
+</div>
 <div *ngIf='movieResponse'>
   Titles:
-  <div *ngFor='let res of movieResponse.results'>
-    {{ res.title }}
+  <div *ngFor='let response of movieResponse.results'>
+    <p (click)='movieInfo(response.id)'> {{ response.title }} </p>
+    
   </div>
+  
+  
 </div>
+
 
 
 
