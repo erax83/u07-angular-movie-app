@@ -1,4 +1,4 @@
-<h1>Movies And Actors Info</h1>
+<h1>Movies And Movie people Info</h1>
 
 Popular movies right now:
 <div *ngIf='popularResponse' class='popularScroll'>
@@ -12,7 +12,7 @@ Popular movies right now:
 
 Film info:
 <input type="text" [(ngModel)]='userFilm'>
-<button (click)='movieSearch()'>Search Movie</button>
+<button (click)='movieSearch()'>Search</button>
 <div *ngIf='infoResponse'>
   Title:
   {{ infoResponse.title }}
@@ -41,9 +41,9 @@ Titles:
 </div>
 <br>
 
-Actors:
+People:
 <input type="text" [(ngModel)]='userActor'>
-<button (click)='actorSearch()'>Search Actor</button>
+<button (click)='actorSearch()'>Search</button>
 <br>
 <div *ngIf='actorInfoResponse'>
   Name:
@@ -52,12 +52,16 @@ Actors:
   Date of birth:
   {{ actorInfoResponse.birthday }}
   <br>
-  Biography:
-  {{ actorInfoResponse.biography }}
+  <div *ngIf='actorInfoResponse.deathday != null'>
+  Dead:
+  {{ actorInfoResponse.deathday }}
+  </div>
+  Department:
+  {{ actorInfoResponse.known_for_department}}
   <br>
 </div>
 <br>
-Actor Names:
+People result:
 <br>
 <div *ngIf='actorResponse' class='filmSearchScroll'>
   <div *ngFor='let response of actorResponse.results'>
