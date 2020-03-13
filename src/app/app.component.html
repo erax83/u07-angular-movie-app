@@ -1,82 +1,79 @@
 <div id="wrapper">
+  <header>
+    <h1>Movies And Folks Info</h1>
+    <hr />
+  </header>
 
-<header>
-  <h1>Movies And Folks Info</h1>
-  <hr>
-</header>
-
-<div id="boxSearch">
-  <div>
-    <h2>Film info: </h2>
-    <input type="text" [(ngModel)]='userFilm'>
-    <button (click)='movieSearch()'>Search</button>
-    </div>
-    
+  <div id="boxSearch">
     <div>
-    <h2>Folks info: </h2>
-    <input type="text" [(ngModel)]='userActor'>
-    <button (click)='actorSearch()'>Search</button>
+      <h2>Movie Search:</h2>
+      <input type="text" [(ngModel)]="userFilm" />
+      <button (click)="movieSearch()">Search</button>
     </div>
-</div>
 
-
-<div id="boxNew">
-<h2>New Movies:</h2>
-<div *ngIf='popularResponse' class='popularScroll'>
-  <div *ngFor='let response of popularResponse.results'>
-    <p (click)='movieInfo(response.id)'> {{ response.title }} </p>
-  </div>
-</div>
-</div>
-
-<div id="boxMovie">
-  <h2>Movie Info:</h2>
-  <div *ngIf='infoResponse'>
-    <h3>Title:</h3>
-    {{ infoResponse.title }}
-    <h3>Release date:</h3>
-    {{ infoResponse.release_date }}
-    <h3>Rating:</h3>
-    {{ infoResponse.vote_average }}
-    <h3>Original language:</h3>
-    {{ infoResponse.original_language }}
-  </div>
-</div>
-
-<div id="boxFolks">
-  <h2>Folks Info:</h2>
-  <div *ngIf='actorInfoResponse'>
-    <h3>Name:</h3>
-    {{ actorInfoResponse.name }}
-    <h3>Date of birth:</h3>
-    {{ actorInfoResponse.birthday }}
-    <div *ngIf='actorInfoResponse.deathday != null'>
-    <h3>Dead:</h3>
-    {{ actorInfoResponse.deathday }}
-    </div>
-    <h3>Department:</h3>
-    {{ actorInfoResponse.known_for_department}}
-  </div>
-</div>
-
-<div id="boxMoviesList">
-  <h2>Titles:</h2>
-  <div *ngIf='movieResponse' class='filmSearchScroll'>
-    <div *ngFor='let response of movieResponse.results'>
-      <p (click)='movieInfo(response.id)'> {{ response.title }} </p>
+    <div>
+      <h2>Folks Search:</h2>
+      <input type="text" [(ngModel)]="userActor" />
+      <button (click)="actorSearch()">Search</button>
     </div>
   </div>
-</div>
 
-<div id="boxFolksList">
-  <h2>Folks:</h2>
-  <div *ngIf='actorResponse' class='filmSearchScroll'>
-    <div *ngFor='let response of actorResponse.results'>
-      <p (click)='actorInfo(response.id)'> {{ response.name }} </p>
+  <div id="boxNew">
+    <h2>New Movies:</h2>
+    <div *ngIf="popularResponse" class="popularScroll">
+      <div *ngFor="let response of popularResponse.results">
+        <p (click)="movieInfo(response.id)">{{ response.title }}</p>
+      </div>
     </div>
   </div>
-</div>
 
+  <div id="boxMovie">
+    <h2>Movie Info:</h2>
+    <div *ngIf="infoResponse">
+      <h3>Title:</h3>
+      {{ infoResponse.title }}
+      <h3>Release date:</h3>
+      {{ infoResponse.release_date }}
+      <h3>Rating:</h3>
+      {{ infoResponse.vote_average }}
+      <h3>Original language:</h3>
+      {{ infoResponse.original_language }}
+    </div>
+  </div>
+
+  <div id="boxFolks">
+    <h2>Folks Info:</h2>
+    <div *ngIf="actorInfoResponse">
+      <h3>Name:</h3>
+      {{ actorInfoResponse.name }}
+      <h3>Date of birth:</h3>
+      {{ actorInfoResponse.birthday }}
+      <div *ngIf="actorInfoResponse.deathday != null">
+        <h3>Dead:</h3>
+        {{ actorInfoResponse.deathday }}
+      </div>
+      <h3>Department:</h3>
+      {{ actorInfoResponse.known_for_department }}
+    </div>
+  </div>
+
+  <div id="boxMoviesList">
+    <h2>Titles:</h2>
+    <div *ngIf="movieResponse" class="filmSearchScroll">
+      <div *ngFor="let response of movieResponse.results">
+        <p (click)="movieInfo(response.id)">{{ response.title }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="boxFolksList">
+    <h2>Folks:</h2>
+    <div *ngIf="actorResponse" class="filmSearchScroll">
+      <div *ngFor="let response of actorResponse.results">
+        <p (click)="actorInfo(response.id)">{{ response.name }}</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <router-outlet></router-outlet>

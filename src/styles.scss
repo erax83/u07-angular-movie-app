@@ -1,11 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
-
-
 * {
     font-family: helvetica;
     color: white;
     background-color: black;
 }
+
+p:hover {
+    color: lightgray;
+    cursor: pointer;
+  }
 
 hr {
     border-width:5px;  
